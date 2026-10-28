@@ -214,12 +214,5 @@ Caso este serviço evolua para um ambiente de microsserviços em cloud (Kubernet
 
 ---
 
-## 📋 Pontos Pendentes e Melhorias Futuras
-* **Event Broker Distribuído**: Substituição do polling de reconciliação por mensageria orientada a eventos (Kafka) com Debezium para Change Data Capture (CDC) sobre a tabela de Outbox.
-* **Cache de Consulta**: Cache distribuído via Redis para o endpoint `GET /api/v1/requests/{id}` quando em status terminal (`COMPLETED` ou `FAILED`).
-* **Rate Limiting Distribuído**: Implementação de controle de vazão (Bucket4j / Redis) na API de ingestão para proteção contra picos abusivos de tráfego.
-
----
-
 ## ⚙️ Padrões de Engenharia e Confiabilidade
 Todas as decisões técnicas, controle transacional isolado com `REQUIRES_NEW`, regras de concorrência distribuída, tolerância a falhas com Resilience4j e especificações RFC 9457 foram desenhadas segundo os mais rigorosos padrões da indústria para sistemas de alta disponibilidade.
