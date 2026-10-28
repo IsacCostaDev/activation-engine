@@ -1,0 +1,29 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Java 21 LTS
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          cache: 'maven'
+
+      - name: Grant Execute Permission to Maven Wrapper
+        run: chmod +x mvnw
+
+      - name: Run Build, Static Checks and Tests
+        run: ./mvnw clean verify -B

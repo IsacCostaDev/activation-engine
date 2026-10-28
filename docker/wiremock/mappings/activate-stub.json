@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/provider/v1/activate"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "status": "SUCCESS",
+      "activationCode": "ACT-COMPOSE-OK",
+      "message": "Product activation completed successfully"
+    }
+  }
+}
